@@ -75,11 +75,11 @@ void EXTI9_5_IRQHandler()
 			const uint16_t pinState = (GPIOA->IDR & GPIO_Pin_8);
 			if(!pinState)
 			{
-				//reset pin is high -> stop and reset sequencer
-				seq_setRunning(0);
-			} else {
-				//reset pin is low -> start sequencer
+				//reset pin is high -> start sequencer
 				seq_setRunning(1);
+			} else {
+				//reset pin is low -> stop and reset sequencer
+				seq_setRunning(0);
 			}
 		}
 
